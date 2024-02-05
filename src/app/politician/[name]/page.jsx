@@ -6,14 +6,11 @@ import RootLayout from "@/app/layout";
 import "react-toastify/dist/ReactToastify.css"; // Import the CSS for toast notifications
 import { FaStar } from "react-icons/fa";
 import { ToastContainer } from "react-toastify";
-
 import { BsStar, BsStarFill } from "react-icons/bs";
-
 const Rating = ({ onChange, value }) => {
   const handleClick = (selectedValue) => {
     onChange(selectedValue);
   };
-
   return (
     <div className="flex">
       {[...Array(5)].map((_, index) => (
@@ -33,7 +30,6 @@ const Rating = ({ onChange, value }) => {
     </div>
   );
 };
-
 const Questionnaire = ({ onNext, onHide }) => {
   const questions = [
     "How would you rate the politician's efforts in improving education?",
@@ -50,7 +46,6 @@ const Questionnaire = ({ onNext, onHide }) => {
     Array(questions.length).fill()
   );
   const router = useRouter();
-
   const handleNext = () => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
@@ -59,7 +54,6 @@ const Questionnaire = ({ onNext, onHide }) => {
       handleRateLocalNetaSubmit();
     }
   };
-
   const handleRateLocalNetaSubmit = () => {
     console.log("Submitting questionnaire...");
     setTimeout(() => {
@@ -67,7 +61,6 @@ const Questionnaire = ({ onNext, onHide }) => {
       router.push("/"); // Update this with the correct route for your initial screen
     }, 1000);
   };
-
   return (
     <div>
       <h2>{questions[currentQuestion]}</h2>
@@ -106,20 +99,16 @@ const Questionnaire = ({ onNext, onHide }) => {
     </div>
   );
 };
-
 const PoliticianProfile = () => {
   const [showQuestionnaire, setShowQuestionnaire] = useState(false);
-
   const handleRateLocalNeta = () => {
     // Show the questionnaire
     setShowQuestionnaire(true);
   };
-
   const handleQuestionnaireHide = () => {
     // Hide the questionnaire and show score and rank card
     setShowQuestionnaire(false);
   };
-
   const user = {
     name: "Suman",
     position: "MLA",
@@ -127,47 +116,31 @@ const PoliticianProfile = () => {
     image: "/bannerimg2.webp",
     totalScore: 85,
     worldRank: 15,
-    totalVotes: 1467777,
+  totalVotes:1467777,
   };
-
   return (
     <RootLayout authPage={true}>
       <div className="flex">
         {/* Left Card */}
-
-        <div className="cursor-pointer w-2/4 mx-left flex items-center justify-center">
-          {" "}
-          {/* Updated styles here */}
-          <div
-            className="relative rounded-lg p-8 shadow-lg ml-24"
-            style={{
-              height: "450px", // Increase the height as needed
-              width: "300px",
-              boxShadow:
-                "0px 10px 15px -3px rgba(0, 0, 0, 0.2), 0px 4px 6px -2px rgba(0, 0, 0, 0.1)",
-            }}
-          >
+        <div className="cursor-pointer w-1/4 mx-left">
+          <div className="relative rounded-lg p-6 shadow-lg mt-20 ml-24" style={{ height: '340px', width: '250px', boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.2), 0px 4px 6px -2px rgba(0, 0, 0, 0.1)' }}>
             <img
               src="/profilecard.svg"
               alt="Profile Card Background"
               className="absolute inset-0 w-full h-full object-cover rounded-lg"
             />
             {/* User Information */}
-            <div className="text-center text-white relative z-10 mt-14">
+            <div className="text-center text-white relative z-10">
               <img
                 src={user.image}
                 alt={`${user.name}'s Image`}
-                className="rounded-full w-36 h-36 object-cover mx-auto mb-2"
+                className="rounded-full w-32 h-32 object-cover mx-auto mb-2"
               />
-              <div className="mb-6 mt-2">
-                {" "}
-                {/* Increased margins here */}
-                <p className="text-[#52C7D2] text-xl mt-12">{user.name}</p>
-                <p className="text-[#52C7D2] text-lg">{user.position}</p>
-              </div>
+              <p className="text-[#52C7D2] text-xl  mt-16 mb-2">{user.name}</p>
+              <p className="text-[#52C7D2] text-lg mb-2">{user.position}</p>
               <div className="flex justify-center">
                 {[...Array(user.stars)].map((_, index) => (
-                  <FaStar key={index} className="text-yellow-500" />
+                  <FaRegStar key={index} className="text-yellow-500" />
                 ))}
               </div>
             </div>
@@ -175,55 +148,30 @@ const PoliticianProfile = () => {
             <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-gray-200 to-transparent"></div>
           </div>
         </div>
-
-        {/* Right Section */}
-        <div className="bg-white-500 w-2/6 p-6 text-black mt-10 ml-auto mr-12">
-          <div className="h-full flex flex-col ">
-            {/* Banner Section */}
-            <div className="mb-4">
-              <img
-                src="/bannerimg2.webp" // Replace with your banner image
-                alt="Banner"
-                className="w-full h-42 object-cover rounded-lg"
-              />
-            </div>
-
-            {showQuestionnaire ? (
-              <Questionnaire
-                onNext={handleRateLocalNeta}
-                onHide={handleQuestionnaireHide}
-              />
-            ) : (
-              <div className="bg-[#AFF8FF] p-8 rounded-lg mb-4 w-full max-w-md flex items-center justify-between">
-                <div>
-                  <p className="text-lg text-gray-700">Total Score</p>
-                  <p className="text-lg font-bold text-gray-900">
-                    {user.totalVotes}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-lg text-gray-700">World Rank</p>
-                  <p className="text-lg font-bold text-gray-900">
-                    {user.totalScore}
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {showQuestionnaire || (
-              <button
-                onClick={handleRateLocalNeta}
-                className="bg-[#94DCE3] w-full text-white px-4 py-2 rounded-full"
-              >
-                Rate Local Neta
-              </button>
-            )}
-          </div>
-        </div>
+        {/* Right Card */}
+<div className="bg-blue-500 w-1/4 p-6 text-white mt-10 ml-auto mr-12">
+  <div className="h-full flex flex-col justify-between">
+    {/* Left Section (Total Votes) */}
+    <div className="flex justify-between mb-4 ">
+     
+      <div className="mt-72">
+        <p className="text-lg text-[#7E8187] ">Total Votes</p>
+        {/* Assuming user.totalVotes is the variable for total votes */}
+        <p className="text-lg text-[#7E8187]">{user.totalVotes}</p>
       </div>
-      <ToastContainer />
+      {/* Right Section (Score) */}
+      <div className="mt-72">
+        <p className="text-lg text-[#7E8187]">Score</p>
+        <p className="text-lg text-[#7E8187]">{user.totalScore}</p>
+      </div>
+      </div>
+    
+    {/* Rate Local Neta Button */}
+  </div>
+  <button className="bg-[#94DCE3] w-2/4 text-white  mt-10 px-4 py-2 rounded-full">Rate Local Neta</button>
+</div>
+      </div>
     </RootLayout>
   );
 };
-
 export default PoliticianProfile;
