@@ -29,7 +29,7 @@ const Homeone = () => {
     vertical: true,
     verticalSwiping: true,
     speed: 500,
-    slidesToShow: 3, // Set the number of cards to show at a time to 1 for vertical slider
+    slidesToShow: 7, // Set the number of cards to show at a time to 1 for vertical slider
     slidesToScroll: 1,
   };
   
