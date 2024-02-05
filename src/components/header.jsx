@@ -2,17 +2,17 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FaUserCircle, FaSearch } from "react-icons/fa";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
 
 const Header = () => {
   const pathName = usePathname();
+  const router = useRouter();
   const [showHeader, setShowHeader] = useState(true);
-  const [mounted, setMounted] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    setMounted(true);
     const urlsToExclude = ["login", "auth", "register", "newpassword", "otpverify", "forgotpassword"];
     if (urlsToExclude.some(url => pathName.includes(url))) {
       setShowHeader(false);
@@ -21,10 +21,14 @@ const Header = () => {
     }
   }, [pathName]);
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    router.push(`/search?q=${searchTerm}`)
+  }
+
   return (
     <>
       {
-        // mounted &&
         showHeader ?
           (
             <header className="flex items-center justify-between p-4 bg-transparent text-white">
@@ -51,15 +55,18 @@ const Header = () => {
                   }}
                 >
                   <FaSearch className="text-[#B5B5B5]" />
-                  <input
-                    type="text"
-                    placeholder="Search..."
-                    className="border-none ml-2 bg-[#EEE] focus:outline-none text-black flex-grow"
-                    style={{
-                      borderRadius: "12px",
-                      padding: "8px", // Adjust the padding as needed
-                    }}
-                  />
+                  <form onSubmit={handleSearch}>
+                    <input
+                      type="text"
+                      placeholder="Search..."
+                      className="border-none ml-2 bg-[#EEE] focus:outline-none text-black flex-grow"
+                      style={{
+                        borderRadius: "12px",
+                        padding: "8px", // Adjust the padding as needed
+                      }}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                    />
+                  </form>
                 </div>
 
                 {/* Profile Button */}
