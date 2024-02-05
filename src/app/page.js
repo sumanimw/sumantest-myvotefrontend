@@ -40,19 +40,31 @@ import Homeone from '../components/home'
 import RootLayout from './layout';
 import Banner from '@/components/banner';
 
+// export default function Home() {
+//   return (
+//     <>
+//       <RootLayout authPage={true}>
+//         <ToastContainer />
+//         <main className="flex min-h-screen flex-col items-center justify-between p-24">
+//           <Banner></Banner>
+//           <Homeone />
+//           <h2>home page</h2>
+//         </main>
+//       </RootLayout>
+//     </>
+//   );
+// }
+
 export default function Home() {
   return (
     <>
-    <RootLayout authPage={true}>
       <ToastContainer />
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <Banner></Banner>
-        <Homeone/>
-      <h2>home page</h2>  
+        {/* <Banner></Banner> */}
+        <Homeone />
+        <h2>home page</h2>
       </main>
-      </RootLayout>
     </>
   );
 }
-
 
