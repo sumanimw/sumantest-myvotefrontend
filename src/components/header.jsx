@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FaUserCircle, FaSearch } from "react-icons/fa";
-import Banner from "../banner/page";
+import Banner from "./banner";
 
 
 
@@ -57,7 +57,7 @@ const Header = () => {
 
      
     </header>
-    <Banner/>
+    {/* <Banner/> */}
     </>
   );
 };

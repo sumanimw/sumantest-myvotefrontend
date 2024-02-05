@@ -6,7 +6,6 @@ import { useRouter } from 'next/navigation';
 import { FaGoogle, FaApple, FaFacebook } from 'react-icons/fa'; // Import the icons you need
 
 
-
 const Register = () => {
   const router = useRouter();
   const [formData, setFormData] = useState({
@@ -32,7 +31,7 @@ const Register = () => {
   };
 
   const handleLoginClick = () => {
-    router.push('/login'); // Redirect to the login page
+    router.push('auth/login'); // Redirect to the login page
   };
 
   return (

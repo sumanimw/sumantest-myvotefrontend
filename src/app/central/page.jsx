@@ -7,8 +7,10 @@ import { FaRegStar } from "react-icons/fa";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import RootLayout from "../layout";
+
 // Home component
-const Homeone = () => {
+const central = () => {
   // Sample data for user cards
   const userCards = [
     { id: 1, name: "Suman", position: "MLA", stars: 4, image: "/bannerimg2.webp" },
@@ -16,7 +18,6 @@ const Homeone = () => {
     { id: 3, name: "Sonam", position: "MLA", stars: 5, image: "/bannerimg.webp" },
     // Add more users as needed
   ];
-
   const repeatedUserCards = [...userCards, ...userCards]; // Repeat the user cards for display
 
   const verticalSliderSettings = {
@@ -25,20 +26,20 @@ const Homeone = () => {
     vertical: true,
     verticalSwiping: true,
     speed: 500,
-    slidesToShow: 6, // Set the number of cards to show at a time to 1 for vertical slider
+    slidesToShow: 3, // Set the number of cards to show at a time to 1 for vertical slider
     slidesToScroll: 1,
   };
-  
   // Slick slider settings
   const sliderSettings = {
     dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 3, // Adjust the number of cards to show at a time
-    slidesToScroll: 2,
+    slidesToScroll: 1,
   };
 
   return (
+<RootLayout authPage={true} auth={true}>
     <div className="container mx-auto p-8">
       <div className="flex justify-center">
         <div className="bg-[#E2F9FF] rounded-lg p-6 mb-8 w-64 h-64 mx-2 relative">
@@ -49,7 +50,7 @@ const Homeone = () => {
             className="rounded-full w-32 h-32 object-cover mb-4 mx-auto"
           />
           <div className="text-center">
-            <p className="text-xl text-black">Central Government</p>
+            <p className="text-xl text-black">LokShabha</p>
           </div>
         </div>
 
@@ -63,12 +64,13 @@ const Homeone = () => {
             className="rounded-full w-32 h-32 object-cover mb-4 mx-auto"
           />
           <div className="text-center">
-            <p className="text-xl text-black">State Government</p>
+            <p className="text-xl text-black">RajyaShabha</p>
           </div>
         </div>
       </div>
-      
-<div className="text-gray-600 text-2xl text-center mb-4">Popular Politicians</div>
+
+      {/* User Card Slider */}
+      <div className="text-gray-600 text-2xl text-center mb-4">Popular Politicians</div>
 <Slider {...sliderSettings} className="relative">
   {userCards.map((user) => ( 
     <div key={user.id} className="px-2">
@@ -91,7 +93,7 @@ const Homeone = () => {
           <p className="text-[#52C7D2] text-lg">{user.position}</p>
           <div className="flex justify-center mt-1">
             {[...Array(user.stars)].map((_, index) => (
-              <FaRegStar key={index} className="text-[#52C7D2]" />
+              <FaRegStar key={index} className="text-yellow-500" />
             ))}
           </div>
         </div>
@@ -101,8 +103,12 @@ const Homeone = () => {
     </div>
   ))}
 </Slider>
-<h2 className="text-gray-600 text-2xl text-center mb-4">Latest Politicians</h2>
-<Slider {...verticalSliderSettings} className="relative">
+
+
+
+<div className="text-gray-600 text-2xl text-center mb-4">Latest Politicians</div>
+
+<Slider {...verticalSliderSettings} className="slick-vertical" >
   {repeatedUserCards.map((user, index) => (
     <div key={index} className="px-2">
       <div className="flex">
@@ -122,11 +128,11 @@ const Homeone = () => {
 
           {/* User Information on the right */}
           <div className="text-white absolute right-0 inset-0 flex flex-col justify-center p-6">
-            <p className="text-xl font-bold">{user.name}</p>
-            <p className="text-md">{user.position}</p>
-            <div className="flex justify-center mt-1">
+            <p className="text-xl font-bold flex justify-center ">{user.name}</p>
+            <p className="text-md flex justify-center ">{user.position}</p>
+            <div className="flex justify-end absolute right-12  mt-1">
               {[...Array(user.stars)].map((_, index) => (
-                <FaRegStar key={index} className="text-[#52C7D2]" />
+                <FaRegStar key={index} className="text-yellow-500" />
               ))}
             </div>
           </div>
@@ -148,11 +154,11 @@ const Homeone = () => {
 
           {/* User Information on the right */}
           <div className="text-white absolute right-0 inset-0 flex flex-col justify-center p-6">
-            <p className="text-xl font-bold">{user.name}</p>
-            <p className="text-md">{user.position}</p>
-            <div className="flex justify-center mt-1">
+          <p className="text-xl font-bold flex justify-center ">{user.name}</p>
+            <p className="text-md flex justify-center ">{user.position}</p>
+            <div className="flex justify-end absolute right-12  mt-1">
               {[...Array(user.stars)].map((_, index) => (
-                <FaRegStar key={index} className="text-[#52C7D2]" />
+                <FaRegStar key={index} className="text-yellow-500" />
               ))}
             </div>
           </div>
@@ -162,12 +168,9 @@ const Homeone = () => {
   ))}
 </Slider>
 
-
-
     </div>
-
-    
+    </RootLayout>
   );
 };
 
-export default Homeone;
+export default central;
