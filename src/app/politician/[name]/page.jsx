@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import RootLayout from "@/app/layout";
 import "react-toastify/dist/ReactToastify.css"; // Import the CSS for toast notifications
 import { FaStar } from "react-icons/fa";
 import { ToastContainer } from "react-toastify";
@@ -131,7 +130,7 @@ const PoliticianProfile = () => {
   };
 
   return (
-    <RootLayout authPage={true}>
+   
       <div className="flex">
         {/* Left Card */}
 
@@ -220,9 +219,10 @@ const PoliticianProfile = () => {
             )}
           </div>
         </div>
+        <ToastContainer />
       </div>
-      <ToastContainer />
-    </RootLayout>
+  
+    
   );
 };
 

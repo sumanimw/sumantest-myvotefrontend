@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { RiCheckboxCircleLine } from "react-icons/ri";
 import { FaGoogle, FaApple, FaFacebook } from "react-icons/fa";
-import RootLayout from "../layout";
+
 
 const Login = () => {
   const router = useRouter();
