@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import RootLayout from "@/app/layout";
 import "react-toastify/dist/ReactToastify.css"; // Import the CSS for toast notifications
 import { FaStar } from "react-icons/fa";
 import { ToastContainer } from "react-toastify";
@@ -119,7 +118,7 @@ const PoliticianProfile = () => {
   totalVotes:1467777,
   };
   return (
-    <RootLayout authPage={true}>
+   
       <div className="flex">
         {/* Left Card */}
         <div className="cursor-pointer w-1/4 mx-left">
@@ -148,30 +147,53 @@ const PoliticianProfile = () => {
             <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-gray-200 to-transparent"></div>
           </div>
         </div>
-        {/* Right Card */}
-<div className="bg-blue-500 w-1/4 p-6 text-white mt-10 ml-auto mr-12">
-  <div className="h-full flex flex-col justify-between">
-    {/* Left Section (Total Votes) */}
-    <div className="flex justify-between mb-4 ">
-     
-      <div className="mt-72">
-        <p className="text-lg text-[#7E8187] ">Total Votes</p>
-        {/* Assuming user.totalVotes is the variable for total votes */}
-        <p className="text-lg text-[#7E8187]">{user.totalVotes}</p>
+
+        {/* Right Section */}
+        <div className="bg-white-500 w-2/6 p-6 text-black mt-10 ml-auto mr-12">
+          <div className="h-full flex flex-col ">
+            {/* Banner Section */}
+            <div className="mb-4">
+              <img
+                src="/bannerimg2.webp" // Replace with your banner image
+                alt="Banner"
+                className="w-full h-42 object-cover rounded-lg"
+              />
+            </div>
+
+            {showQuestionnaire ? (
+              <Questionnaire
+                onNext={handleRateLocalNeta}
+                onHide={handleQuestionnaireHide}
+              />
+            ) : (
+              <div className="bg-[#AFF8FF] p-8 rounded-lg mb-4 w-full max-w-md flex items-center justify-between">
+                <div>
+                  <p className="text-lg text-gray-700">Total Score</p>
+                  <p className="text-lg font-bold text-gray-900">
+                    {user.totalVotes}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-lg text-gray-700">World Rank</p>
+                  <p className="text-lg font-bold text-gray-900">
+                    {user.totalScore}
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {showQuestionnaire || (
+              <button
+                onClick={handleRateLocalNeta}
+                className="bg-[#94DCE3] w-full text-white px-4 py-2 rounded-full"
+              >
+                Rate Local Neta
+              </button>
+            )}
+          </div>
+        </div>
       </div>
-      {/* Right Section (Score) */}
-      <div className="mt-72">
-        <p className="text-lg text-[#7E8187]">Score</p>
-        <p className="text-lg text-[#7E8187]">{user.totalScore}</p>
-      </div>
-      </div>
-    
-    {/* Rate Local Neta Button */}
-  </div>
-  <button className="bg-[#94DCE3] w-2/4 text-white  mt-10 px-4 py-2 rounded-full">Rate Local Neta</button>
-</div>
-      </div>
-    </RootLayout>
+
   );
 };
 export default PoliticianProfile;
