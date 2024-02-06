@@ -1,12 +1,8 @@
 "use client";
 
 import React from "react";
-import Slider from "react-slick";
-import { FaStar } from "react-icons/fa";
-import { FaRegStar } from "react-icons/fa";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import RootLayout from "../layout";
+import PopularPoliticians from "@/components/politicans/popularPoliticans";
+import LatestPoliticians from "@/components/politicans/latestPoliticians";
 
 // Home component
 const MLC = () => {
@@ -26,8 +22,7 @@ const MLC = () => {
       <LatestPoliticians politicans={repeatedUserCards} />
 
     </div>
-    </RootLayout>
   );
 };
 
-export default LokSabha;
+export default MLC;

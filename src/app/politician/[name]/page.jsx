@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import "react-toastify/dist/ReactToastify.css"; // Import the CSS for toast notifications
-import { FaStar } from "react-icons/fa";
+import { FaRegStar } from "react-icons/fa";
 import { ToastContainer } from "react-toastify";
 import { BsStar, BsStarFill } from "react-icons/bs";
 const Rating = ({ onChange, value }) => {

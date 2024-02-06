@@ -81,7 +81,7 @@ const Header = () => {
           ) :
           null
       }
-      {/* <Banner/> */}
+   
     </>
   );
 };

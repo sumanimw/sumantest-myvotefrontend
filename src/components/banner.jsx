@@ -8,10 +8,9 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 const Banner = () => {
   const pathName = usePathname();
   const [showBanner, setShowBanner] = useState(true);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+  
     const urlsToExclude = ["login", "auth", "register", "newpassword", "otpverify", "forgotpassword", "politician"];
     if (urlsToExclude.some(url => pathName.includes(url))) {
       setShowBanner(false);
@@ -22,7 +21,7 @@ const Banner = () => {
   return (
     <>
       {
-        // mounted && 
+       
         showBanner ?
           (
             <div className="w-1/2 h-1/3 mx-auto mt-7">

@@ -60,7 +60,6 @@ export default function Home() {
     <>
       <ToastContainer />
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        {/* <Banner></Banner> */}
         <Homeone />
         <h2>home page</h2>
       </main>
