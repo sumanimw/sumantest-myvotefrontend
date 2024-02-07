@@ -15,7 +15,7 @@ const PopularPoliticians = ({ politicans }) => {
 
     return (
         <>
-            <div className="text-gray-600 text-2xl text-center mb-4">Popular Politicians</div>
+            <div className="text-gray-600 text-lg text-center mb-6">Popular Politicians</div>
             <Slider {...sliderSettings} className="relative">
                 {politicans.map((politician) => <HorizontalCard politician={politician} key={politician.id} />)}
             </Slider>

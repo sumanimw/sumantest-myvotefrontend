@@ -1,17 +1,10 @@
 "use client";
-import { useRouter } from "next/navigation";
-import React from "react";
+
 import PopularPoliticians from "./politicans/popularPoliticans";
 import LatestPoliticians from "./politicans/latestPoliticians";
+import GovCard from "./cards/govCard";
 
-
-
-// Home component
 const Homeone = () => {
-  const router = useRouter();
-  const handleRedirect = (path) => {
-    router.push(path);
-  };
 
   // Sample data for user cards
   const userCards = [
@@ -24,43 +17,14 @@ const Homeone = () => {
   const repeatedUserCards = [...userCards, ...userCards]; // Repeat the user cards for display
 
   return (
-
-    <div className="container mx-auto p-8">
-      <div className="flex justify-center">
-        <div className="bg-[#E2F9FF] rounded-lg p-6 mb-8 w-64 h-64 mx-2 relative">
-          {/* Content for Central Government */}
-          <img
-            src="/bannerimg3.jpeg"
-            alt="Blue Container Image"
-            className="rounded-full w-32 h-32 object-cover mb-4 mx-auto"
-          />
-          <div className="text-center">
-          <p   onClick={() => handleRedirect("/central")} className="text-xl text-black cursor-pointer">Central Government</p>
-          </div>
-        </div>
-
-        <div className="bg-[#52C7D2] border border-[#52C7D2]  h-60 my-4 mx-2"></div> {/* Vertical line */}
-
-        <div className="bg-[#E2F9FF] rounded-lg p-6 mb-8 w-64 h-64 mx-2 relative">
-          {/* Content for State Government */}
-          <img
-            src="/bannerimg3.jpeg"
-            alt="Blue Container Image"
-            className="rounded-full w-32 h-32 object-cover mb-4 mx-auto"
-          />
-          <div className="text-center">
-          <p   onClick={() => handleRedirect("/state")} className="text-xl text-black cursor-pointer">State Government</p>
-          </div>
-        </div>
+    <div className="container mx-auto">
+      <div className="flex justify-around">
+        <GovCard image="/bannerimg3.jpeg" title="Central Government" path="central" />
+        <GovCard image="/bannerimg3.jpeg" title="State Government" path="state" />
       </div>
-
       <PopularPoliticians politicans={userCards} />
       <LatestPoliticians politicans={repeatedUserCards} />
     </div>
-
-
-
-
   );
 };
 

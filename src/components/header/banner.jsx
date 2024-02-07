@@ -1,5 +1,6 @@
 
 "use client"
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
@@ -10,7 +11,7 @@ const Banner = () => {
   const [showBanner, setShowBanner] = useState(true);
 
   useEffect(() => {
-  
+
     const urlsToExclude = ["login", "auth", "register", "newpassword", "otpverify", "forgotpassword", "politician"];
     if (urlsToExclude.some(url => pathName.includes(url))) {
       setShowBanner(false);
@@ -21,26 +22,27 @@ const Banner = () => {
   return (
     <>
       {
-       
+
         showBanner ?
           (
-            <div className="w-1/2 h-1/3 mx-auto mt-7">
+            <div className="m-5 mt-10">
               <Carousel
                 showArrows={false}
                 showStatus={false}
                 showThumbs={false}
                 infiniteLoop
                 autoPlay
-                style={{ width: '100%', height: '15%' }} // Adjust the size of the Carousel and set height to half
+                // style={{ width: '100%', height: '15%' }} // Adjust the size of the Carousel and set height to half
               >
                 <div>
-                  <img src="/bannerimg.webp" alt="Banner 1" style={{ maxWidth: '100%', maxHeight: '100%' }} />
+                  <Image src="/banner5.jpeg" alt="Banner 1" width={1400} height={100} className='rounded-2xl'/>
+                  {/* <img src="/1400x400.svg" alt="Banner 3" className='rounded-2xl' style={{ maxWidth: '100%', maxHeight: '100%' }} /> */}
                 </div>
                 <div>
-                  <img src="/bannerimg2.webp" alt="Banner 2" style={{ maxWidth: '100%', maxHeight: '100%' }} />
+                  <Image src="/banner5.jpeg" alt="Banner 1" width={1400} height={100} className='rounded-2xl' layout="responsive" />
                 </div>
                 <div>
-                  <img src="/bannerimg3.jpeg" alt="Banner 3" style={{ maxWidth: '100%', maxHeight: '100%' }} />
+                  <Image src="/banner5.jpeg" alt="Banner 1" width={1400} height={100} className='rounded-2xl' layout="responsive" />
                 </div>
               </Carousel>
             </div>

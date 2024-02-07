@@ -5,7 +5,7 @@ import { FaRegStar } from "react-icons/fa";
 const VerticalCard = ({ politician }) => {
   return (
     <Link href={`/politician/${politician.name}`} passHref>
-      <div className="relative rounded-lg p-6 shadow-lg mx-4  " style={{
+      <div className="relative rounded-2xl p-6 shadow-2xl mx-4  " style={{
         height: '200px', backgroundColor: '#52C7D2'
       }}>
         {/* Circular Profile Image on the left */}
