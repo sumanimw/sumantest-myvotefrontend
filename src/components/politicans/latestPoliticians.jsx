@@ -1,27 +1,18 @@
-import React from 'react'
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import VerticalCard from '../cards/verticalCard'
 
-const LatestPoliticians = ({politicans}) => {
-    const verticalSliderSettings = {
-        dots: false,
-        infinite: true,
-        vertical: true,
-        verticalSwiping: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-      };
+const LatestPoliticians = ({ politicans }) => {
   return (
     <>
-      <div className="text-gray-600 text-2xl text-center mb-4">Latest Politicians</div>
-      <Slider {...verticalSliderSettings} className="slick-vertical" >
-        {politicans.map((politician, index) => <VerticalCard politician={politician} key={index} />)}
-      </Slider>
+      <div className="text-gray-600 text-lg text-center my-6">Latest Politicians</div>
+      <div className="flex flex-wrap justify-center px-24">
+        {politicans.map((politician, index) => (
+          <div key={index} className="w-1/2 mb-2">
+            <VerticalCard politician={politician} key={index} />
+          </div>
+        ))}
+      </div>
     </>
   )
 }
 
-export default LatestPoliticians
+export default LatestPoliticians;

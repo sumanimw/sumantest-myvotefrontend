@@ -31,15 +31,14 @@ const Header = () => {
       {
         showHeader ?
           (
-            <header className="flex items-center justify-between p-4 bg-transparent text-white">
+            <header className="flex items-center justify-between p-4 bg-transparent text-white rounded-lg shadow-lg sticky">
               {/* Logo */}
-              <div className="flex items-center">
-                <Image src="/logo.png" alt="Logo" width={40} height={40} />
-                {/* Home Link */}
-                <Link href="/">
-                  <div className="text-teal-300 text-lg ml-12 cursor-pointer">Home</div>
-                </Link>
-              </div>
+              <Image src="/logo.png" alt="Logo" width={40} height={40} />
+
+              {/* Home Link */}
+              <Link href="/">
+                <div className="text-teal-300 text-lg ml-12 cursor-pointer">Home</div>
+              </Link>
 
               {/* Search Bar and Profile Button */}
               <div className="flex items-center">
@@ -68,20 +67,20 @@ const Header = () => {
                     />
                   </form>
                 </div>
-
-                {/* Profile Button */}
-                <Link href="/profile">
-                  <div className="flex items-center cursor-pointer ml-2">
-                    {/* Profile icon */}
-                    <FaUserCircle className="text-gray-500 text-5xl" />
-                  </div>
-                </Link>
               </div>
+
+              {/* Profile Button */}
+              <Link href="/profile">
+                <div className="flex items-center cursor-pointer ml-2">
+                  {/* Profile icon */}
+                  <FaUserCircle className="text-gray-500 text-5xl" />
+                </div>
+              </Link>
             </header>
           ) :
           null
       }
-   
+
     </>
   );
 };

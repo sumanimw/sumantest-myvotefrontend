@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import PopularPoliticians from "@/components/politicans/popularPoliticans";
 import LatestPoliticians from "@/components/politicans/latestPoliticians";
+import GovCard from "@/components/cards/govCard";
 
 // Home component
 const State = () => {
@@ -21,33 +22,9 @@ const State = () => {
 
   return (
     <div className="container mx-auto p-8">
-      <div className="flex justify-center">
-        <div className="bg-[#E2F9FF] rounded-lg p-6 mb-8 w-64 h-64 mx-2 relative">
-          {/* Content for Central Government */}
-          <img
-            src="/bannerimg3.jpeg"
-            alt="Blue Container Image"
-            className="rounded-full w-32 h-32 object-cover mb-4 mx-auto"
-          />
-          <div className="text-center">
-          <p   onClick={() => handleRedirect("/mla")} className="text-xl text-black cursor-pointer">Legislative Assembly</p>
-          </div>
-        </div>
-
-        <div className="bg-[#52C7D2] border border-[#52C7D2]  h-60 my-4 mx-2"></div> {/* Vertical line */}
-
-        <div className="bg-[#E2F9FF] rounded-lg p-6 mb-8 w-64 h-64 mx-2 relative">
-          {/* Content for State Government */}
-          <img
-            src="/bannerimg3.jpeg"
-            alt="Blue Container Image"
-            className="rounded-full w-32 h-32 object-cover mb-4 mx-auto"
-          />
-          <div className="text-center">
-            
-            <p onClick={() => handleRedirect("/mlc")} className="text-xl text-black cursor-pointer">Legislative Council</p>
-          </div>
-        </div>
+      <div className="flex justify-around">
+        <GovCard image="/bannerimg3.jpeg" title="Legislative Assembly" path="mla" />
+        <GovCard image="/bannerimg3.jpeg" title="Legislative Council" path="mlc" />
       </div>
 
       <PopularPoliticians politicans={userCards} />

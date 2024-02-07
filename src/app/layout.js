@@ -1,9 +1,10 @@
 import { Inter } from "next/font/google";
 import 'react-toastify/dist/ReactToastify.css';
-import Header from "../components/header";
+import Header from "../components/header/header";
 
 import "./globals.css";
-import Banner from "@/components/banner";
+import Banner from "@/components/header/banner";
+import Footer from "@/components/footer/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 const metadata = {
@@ -15,9 +16,12 @@ export default function RootLayout({ children}) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
-        <Banner />
-        {children}
+        <div className="overflow-x-hidden">
+          <Header />
+          <Banner />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );  
