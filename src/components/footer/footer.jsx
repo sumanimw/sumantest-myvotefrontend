@@ -6,12 +6,11 @@ import Image from 'next/image';
 import { FaFacebook, FaLinkedinIn } from 'react-icons/fa';
 import { BsInstagram } from "react-icons/bs";
 import { IoLogoWhatsapp } from "react-icons/io5";
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 
 const Footer = () => {
     const pathName = usePathname();
-    const router = useRouter();
     const [showFooter, setShowFooter] = useState(true);
 
     useEffect(() => {

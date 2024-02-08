@@ -39,10 +39,10 @@ const Banner = () => {
                   {/* <img src="/1400x400.svg" alt="Banner 3" className='rounded-2xl' style={{ maxWidth: '100%', maxHeight: '100%' }} /> */}
                 </div>
                 <div>
-                  <Image src="/banner5.jpeg" alt="Banner 1" width={1400} height={100} className='rounded-2xl' layout="responsive" />
+                  <Image src="/banner5.jpeg" alt="Banner 1" width={1400} height={100} className='rounded-2xl'/>
                 </div>
                 <div>
-                  <Image src="/banner5.jpeg" alt="Banner 1" width={1400} height={100} className='rounded-2xl' layout="responsive" />
+                  <Image src="/banner5.jpeg" alt="Banner 1" width={1400} height={100} className='rounded-2xl'/>
                 </div>
               </Carousel>
             </div>
